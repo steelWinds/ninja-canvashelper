@@ -42,8 +42,9 @@ const canvas = await cHelper.createCanvasField(
 ### Docs
 
 #### CanvasHelper
-- ```(async) cHelper.createCanvasField(id, options)``` - create canvas instance ang get it
-- ```(async) cHelper.removeCanvasField(id)``` - remove canvas instance by id
+- ```cHelper.createCanvasField(id, options)``` - create canvas instance ang get it
+- ```cHelper.removeCanvasField(id)``` - remove canvas instance by id
+- ```cHelper.getCanvasById(id)``` - get canvas instance by id
 - ```cHelper.collection``` - get all created canvases
 
 ---

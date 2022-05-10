@@ -3,17 +3,17 @@ import CanvasDrawing from '@modules/classes/CanvasDrawing';
 
 class CanvasItem implements ICanvasItem {
 	#parentNode: Node;
-	#hashID: string;
+	#base64ID: string;
 	#canvasInstance: HTMLCanvasElement;
 
 	constructor(canvas: HTMLCanvasElement, hashID: string, parent: Node) {
 		this.#canvasInstance = canvas;
-		this.#hashID = hashID;
+		this.#base64ID = hashID;
 		this.#parentNode = parent;
 	}
 
 	public get id(): string {
-		return this.#hashID;
+		return this.#base64ID;
 	}
 
 	public get parent(): Node {

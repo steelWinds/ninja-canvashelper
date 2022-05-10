@@ -9,7 +9,7 @@ specifiers:
   eslint: ^8.15.0
   eslint-config-xo: ^0.40.0
   husky: ^8.0.1
-  lodash-es: ^4.17.21
+  js-base64: ^3.7.2
   typescript: ^4.5.4
   vite: ^2.9.7
   vitest: ^0.12.0
@@ -20,7 +20,7 @@ dependencies:
   crypto-hash: 2.0.1
   eslint: 8.15.0
   eslint-config-xo: 0.40.0_eslint@8.15.0
-  lodash-es: 4.17.21
+  js-base64: 3.7.2
   vitest: 0.12.0
 
 devDependencies:
@@ -918,6 +918,10 @@ packages:
     resolution: {integrity: sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=}
     dev: false
 
+  /js-base64/3.7.2:
+    resolution: {integrity: sha512-NnRs6dsyqUXejqk/yv2aiXlAvOs56sLkX6nUdeaNezI5LFFLlsZjOThmwnrcwh5ZZRwZlCMnVAY3CvhIhoVEKQ==}
+    dev: false
+
   /js-yaml/4.1.0:
     resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
     hasBin: true
@@ -944,10 +948,6 @@ packages:
   /local-pkg/0.4.1:
     resolution: {integrity: sha512-lL87ytIGP2FU5PWwNDo0w3WhIo2gopIAxPg9RxDYF7m4rr5ahuZxP22xnJHIvaLTe4Z9P6uKKY2UHiwyB4pcrw==}
     engines: {node: '>=14'}
-    dev: false
-
-  /lodash-es/4.17.21:
-    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
     dev: false
 
   /lodash.merge/4.6.2:

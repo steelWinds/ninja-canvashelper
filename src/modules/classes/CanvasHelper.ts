@@ -1,6 +1,6 @@
 import type {ICanvasHelper} from '@modules/interfaces/ICanvasHelper';
 import CanvasItem from '@modules/classes/CanvasItem';
-import {sha256} from 'crypto-hash';
+import {encode} from 'js-base64';
 
 class CanvasHelper implements ICanvasHelper {
 	#canvasesCollection: Map<string, InstanceType<typeof CanvasItem>>;
@@ -13,7 +13,13 @@ class CanvasHelper implements ICanvasHelper {
 		return this.#canvasesCollection;
 	}
 
-	public async createCanvasField(
+	public getCanvasById(
+		id: string,
+	): ReturnType<ICanvasHelper['getCanvasById']> {
+		return this.collection.get(encode(id)) ?? null;
+	}
+
+	public createCanvasField(
 		id: string,
 		{iSize, bSize, parentSelector, styleClass}: {
       iSize: number,
@@ -45,29 +51,29 @@ class CanvasHelper implements ICanvasHelper {
 
 		parentNode.appendChild(canvas);
 
-		const idHash = await sha256(id);
+		const idBase64 = encode(id);
 
-		const canvasItem = new CanvasItem(canvas, idHash, parentNode);
+		const canvasItem = new CanvasItem(canvas, idBase64, parentNode);
 
-		this.#canvasesCollection.set(idHash, canvasItem);
+		this.#canvasesCollection.set(idBase64, canvasItem);
 
 		return canvasItem;
 	}
 
-	public async removeCanvasField(
+	public removeCanvasField(
 		id: string,
 	): ReturnType<ICanvasHelper['removeCanvasField']> {
-		const idHash = await sha256(id);
+		const idBase64 = encode(id);
 
-		if (!this.#canvasesCollection.has(idHash)) {
+		if (!this.#canvasesCollection.has(idBase64)) {
 			return false;
 		}
 
-		const canvasItem = this.#canvasesCollection.get(idHash);
+		const canvasItem = this.#canvasesCollection.get(idBase64);
 
 		canvasItem?.parent.removeChild(canvasItem.canvasNode);
 
-		return this.#canvasesCollection.delete(idHash);
+		return this.#canvasesCollection.delete(idBase64);
 	}
 }
 

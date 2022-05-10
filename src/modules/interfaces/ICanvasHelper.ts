@@ -10,9 +10,11 @@ interface ICanvasHelper {
         parentSelector?: string,
         styleClass?: string,
       },
-    ): Promise<ICanvasItem>;
+    ): ICanvasItem;
 
-    removeCanvasField(id: string): Promise<boolean>;
+    removeCanvasField(id: string): boolean;
+
+    getCanvasById(id: string): ICanvasItem | null;
 
     get collection(): Map<string, ICanvasItem>
 }
