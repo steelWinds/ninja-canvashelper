@@ -7,9 +7,8 @@ on:
     branches:
       - main
 jobs: 
-  prod-ci:
+  prod-setup-env:
     if: ${{ github.ref_name == 'main' }}
-    environment: prod-env
     runs-on: ubuntu-latest
     strategy: 
       matrix:
@@ -42,11 +41,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
         
+  prod-build:
+    needs: prod-setup-env
+    runs-on: ubuntu-latest
+    steps:
       - name: Setup depends and out PNPM version
-        run: pnpm i
+          run: pnpm i
 
-      - name: Save output-log as artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: output-work-log
-          path: output.log
+        - name: Save output-log as artifact
+          uses: actions/upload-artifact@v3
+          with:
+            name: output-work-log
+            path: output.log
