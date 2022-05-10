@@ -4,11 +4,17 @@ on:
     types: [created]
     branches:
       - main
+  push: 
+    branches:
+      - main
 jobs:
   publish-npm:
     name: Publish project on NPM
     runs-on: ubuntu-latest
     steps:
+      - name: Setup auto-commits
+        uses: stefanzweifel/git-auto-commit-action@v4
+
       - name: Setup checkout
         uses: actions/checkout@main
 
@@ -38,12 +44,6 @@ jobs:
       - name: Set package.json version
         run: |
           pnpm version ${{ github.ref_name }} --git-tag-version --allow-same-version --force
-
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v9
-        with:
-          default_author: github_actions
-          message: Change package.json version
       
       - name: Publish to NPM
         run: pnpm publish
