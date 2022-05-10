@@ -43,7 +43,6 @@ jobs:
         
       - name: Setup depends and out PNPM version
         run: pnpm i
-        run: pnpm -v
 
       - name: Save output-log as artifact
         uses: actions/upload-artifact@v3
