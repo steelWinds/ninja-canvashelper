@@ -46,10 +46,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup depends and out PNPM version
-          run: pnpm i
+        run: pnpm i
 
-        - name: Save output-log as artifact
-          uses: actions/upload-artifact@v3
-          with:
-            name: output-work-log
-            path: output.log
+      - name: Save output-log as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: output-work-log
+          path: output.log
