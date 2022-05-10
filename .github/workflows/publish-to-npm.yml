@@ -1,8 +1,5 @@
 name: publish-to-npm
 on:
-  push:
-    branches:
-      - main
   release:
     types: [published, created]
 jobs:
