@@ -24,9 +24,9 @@ jobs:
       
       - name: Setup PNPM
         uses: pnpm/action-setup@master
-          with:
-            version: latest
-            run_install: false
+        with:
+          version: latest
+          run_install: false
 
       - name: Set output for pnpm cache store
         id: pnpm-cache
@@ -35,11 +35,11 @@ jobs:
       
       - name: Setup cache
         uses: actions/cache@main
-          with:
-            path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-            key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-            restore-keys: |
-              ${{ runner.os }}-pnpm-store-
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
         
       - name: Setup depends and out PNPM version
         run: pnpm i
