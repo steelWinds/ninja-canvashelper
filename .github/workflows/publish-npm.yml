@@ -1,7 +1,6 @@
 name: publish-npm
 on:
   release:
-    types: [created]
     branches:
       - main
 jobs:
