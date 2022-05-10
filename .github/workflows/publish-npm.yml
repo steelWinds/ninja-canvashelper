@@ -1,5 +1,9 @@
 name: publish-npm
-on: release
+on:
+  release:
+    types: [created]
+    branches:
+      - main
 jobs:
   publish-npm:
     name: Publish project on NPM
@@ -32,6 +36,6 @@ jobs:
       - run: |
           pnpm version ${{ github.ref_name }} --git-tag-version --allow-same-version --force
       
-      #- run: pnpm publish --no-git-checks
-      #  env:
-      #    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} 
+      - run: pnpm publish --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} 
