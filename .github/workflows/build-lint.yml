@@ -48,6 +48,12 @@ jobs:
       - name: Setup depends and out PNPM version
         run: pnpm i
 
+      - name: Build
+        run: pnpm build
+
+      - name: Lint
+        run: pnpm lint
+
       - name: Save output-log as artifact
         uses: actions/upload-artifact@v3
         with:

@@ -8,15 +8,16 @@ on:
     branches:
       - main
 jobs: 
-  runs-on: ubuntu-latest
-  steps:
-    - name: Setup checkout
-      uses: actions/checkout@main
+  publish-to-npm-store: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup checkout
+        uses: actions/checkout@main
 
-    - name: Setup Node.js
-      uses: actions/setup-node@main
-      with:
-        node-version: ${{ matrix.node }}
+      - name: Setup Node.js
+        uses: actions/setup-node@main
+        with:
+          node-version: ${{ matrix.node }}
 
-    - name: Publish
-      run: echo 'pub npm'
+      - name: Publish
+        run: echo 'pub npm'
