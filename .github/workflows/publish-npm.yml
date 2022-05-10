@@ -16,6 +16,11 @@ jobs:
     name: Publish project on NPM
     runs-on: ubuntu-latest
     steps:
+      - name: Setup get latest tag  
+        uses: actions-ecosystem/action-get-latest-tag@main
+        id: get-latest-tag
+        if: ${{ steps.release-label.outputs.level != null }}
+    
       - name: Setup checkout
         uses: actions/checkout@main
 
@@ -37,10 +42,6 @@ jobs:
       - run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
-
-      - uses: actions-ecosystem/action-get-latest-tag@v1
-        id: get-latest-tag
-        if: ${{ steps.release-label.outputs.level != null }}
 
       - run: echo ${{ steps.get-latest-tag.outputs.tag }}
 
