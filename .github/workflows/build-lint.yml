@@ -7,7 +7,8 @@ on:
     branches:
       - main
 jobs: 
-  build-linux:
+  prod-ci:
+    if: ${{ github.ref_name == 'main' }}
     environment: prod-env
     runs-on: ubuntu-latest
     strategy: 
@@ -48,4 +49,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: output-work-log
-          path: artifacts/output.log
+          path: output.log
