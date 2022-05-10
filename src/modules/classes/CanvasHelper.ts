@@ -9,21 +9,22 @@ class CanvasHelper implements ICanvasHelper {
 		this.#canvasesCollection = new Map();
 	}
 
-	public get collection(): Map<string, InstanceType<typeof CanvasItem>> {
-		return this.#canvasesCollection;
+	public get collection(): ICanvasHelper['collection'] {
+		return Array.from(this.#canvasesCollection.values());
 	}
 
 	public getCanvasById(
 		id: string,
 	): ReturnType<ICanvasHelper['getCanvasById']> {
-		return this.collection.get(encode(id)) ?? null;
+		return this.#canvasesCollection.get(encode(id)) ?? null;
 	}
 
 	public createCanvasField(
 		id: string,
-		{iSize, bSize, parentSelector, styleClass}: {
+		{iSize, bSize, reserveMessage, parentSelector, styleClass}: {
       iSize: number,
       bSize: number,
+      reserveMessage?: string
       parentSelector?: string,
       styleClass?: string,
     },
@@ -34,7 +35,7 @@ class CanvasHelper implements ICanvasHelper {
 		const warningMessage = document.createElement('output');
 		warningMessage.insertAdjacentText(
 			'beforeend',
-			'Your browser not supported Canvas',
+			reserveMessage ?? 'Your browser not supported Canvas',
 		);
 		canvas.appendChild(warningMessage);
 
@@ -51,11 +52,11 @@ class CanvasHelper implements ICanvasHelper {
 
 		parentNode.appendChild(canvas);
 
-		const idBase64 = encode(id);
+		const canvasItem = new CanvasItem(canvas, id, parentNode);
 
-		const canvasItem = new CanvasItem(canvas, idBase64, parentNode);
+		const base64ID = encode(id);
 
-		this.#canvasesCollection.set(idBase64, canvasItem);
+		this.#canvasesCollection.set(base64ID, canvasItem);
 
 		return canvasItem;
 	}

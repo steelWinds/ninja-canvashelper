@@ -1,26 +1,27 @@
 import type {ICanvasItem} from '@modules/interfaces/ICanvasItem';
 import CanvasDrawing from '@modules/classes/CanvasDrawing';
+import {encode} from 'js-base64';
 
 class CanvasItem implements ICanvasItem {
 	#parentNode: Node;
 	#base64ID: string;
 	#canvasInstance: HTMLCanvasElement;
 
-	constructor(canvas: HTMLCanvasElement, hashID: string, parent: Node) {
+	constructor(canvas: HTMLCanvasElement, id: string, parent: Node) {
 		this.#canvasInstance = canvas;
-		this.#base64ID = hashID;
+		this.#base64ID = encode(id);
 		this.#parentNode = parent;
 	}
 
-	public get id(): string {
+	public get id(): ICanvasItem['id'] {
 		return this.#base64ID;
 	}
 
-	public get parent(): Node {
+	public get parent(): ICanvasItem['parent'] {
 		return this.#parentNode;
 	}
 
-	public get context2D(): CanvasRenderingContext2D | null {
+	public get context2D(): ICanvasItem['context2D'] {
 		if (this.#canvasInstance.getContext) {
 			return this.#canvasInstance.getContext('2d');
 		}
@@ -28,11 +29,11 @@ class CanvasItem implements ICanvasItem {
 		return null;
 	}
 
-	public get canvasNode(): HTMLCanvasElement {
+	public get canvasNode(): ICanvasItem['canvasNode'] {
 		return this.#canvasInstance;
 	}
 
-	public get draw(): InstanceType<typeof CanvasDrawing> | null {
+	public get draw(): ICanvasItem['draw'] {
 		if (this.context2D) {
 			return new CanvasDrawing(this.context2D);
 		}

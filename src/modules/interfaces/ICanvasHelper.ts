@@ -4,9 +4,10 @@ import type {ICanvasItem} from '@modules/interfaces/ICanvasItem';
 interface ICanvasHelper {
     createCanvasField(
       id: string,
-      {iSize, bSize, parentSelector, styleClass}: {
+      {iSize, bSize, reserveMessage, parentSelector, styleClass}: {
         iSize: number,
         bSize: number,
+        reserveMessage?: string,
         parentSelector?: string,
         styleClass?: string,
       },
@@ -16,7 +17,7 @@ interface ICanvasHelper {
 
     getCanvasById(id: string): ICanvasItem | null;
 
-    get collection(): Map<string, ICanvasItem>
+    get collection(): Array<ICanvasItem>
 }
 
 export type {ICanvasHelper};
