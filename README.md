@@ -1,13 +1,15 @@
-# CanvasHelper
+# ninja-canvashelper
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/steelWinds/CanvasHelper/build-lint?label=build&style=flat-square)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/steelWinds/CanvasHelper/publish-npm?label=last-publish&style=flat-square)
 
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/steelWinds/CanvasHelper?style=flat-square)
 ![GitHub top language](https://img.shields.io/github/languages/top/steelWinds/CanvasHelper?style=flat-square)
 ![npm type definitions](https://img.shields.io/npm/types/ninja-canvashelper?style=flat-square)
 
 ![GitHub](https://img.shields.io/github/license/steelWinds/CanvasHelper?style=flat-square)
+
+![npm](https://img.shields.io/npm/v/ninja-canvashelper?style=flat-square)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/steelWinds/CanvasHelper?style=flat-square)
 
 Simple library for simplification work with Canvas
 
@@ -61,6 +63,10 @@ const canvas = await cHelper.createCanvasField(
 - ```canvas.draw.drawLine(options, lineOptions)``` - draw line with options
 - ```canvas.draw.drawArc(options)``` - draw circle with options
 
+
+## License
+
+Check license in **LICENSE** file 
 
 ## Author
 
