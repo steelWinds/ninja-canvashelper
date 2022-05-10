@@ -38,8 +38,14 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
 
-      - run: pnpm version from-git -git-tag-version -allow-same-version -force
+      - uses: actions-ecosystem/action-get-latest-tag@v1
+        id: get-latest-tag
+        if: ${{ steps.release-label.outputs.level != null }}
+
+      - run: echo ${{ steps.get-latest-tag.outputs.tag }}
+
+      #- run: pnpm version from-git -git-tag-version -allow-same-version -force
       
-      - run: pnpm publish --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} 
+      #- run: pnpm publish --no-git-checks
+      #  env:
+      #    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} 
