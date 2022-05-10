@@ -1,10 +1,10 @@
-name: npm-publish
+name: Publish to NPM
 on:
   release:
     branches:
       - main
 jobs:
-  npm-publish:
+  publish:
     name: Publish project on NPM
     runs-on: ubuntu-latest
     steps:
