@@ -22,17 +22,6 @@ jobs:
         with:
           version: latest
           run_install: false
-      
-      - name: Install depends
-        run: pnpm i
-
-      - name: Build project
-        run: pnpm build
-
-      - name: Auth in GIT
-        run: |
-          git config --global user.name "GitHub Actions Bot"
-          git config --global user.email "<>"
 
       - name: Set package.json version
         run: |
@@ -40,10 +29,18 @@ jobs:
 
       - name: Commit changes
         run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "<>"
           git add -A
           git commit -m "Update package.json version"
           git push origin main
       
+      - name: Install depends
+        run: pnpm i
+
+      - name: Build project
+        run: pnpm build
+
       - name: Publish to NPM
         run: pnpm publish
         env:
