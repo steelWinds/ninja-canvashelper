@@ -1,9 +1,12 @@
 name: npm-publish
 on: 
   release:
-      types: [published, created, released]
-      branches: 
-        - main
+    types: [published, created, released]
+    branches: 
+      - main
+  push:
+    branches:
+      - main
 jobs: 
   runs-on: ubuntu-latest
   steps:
