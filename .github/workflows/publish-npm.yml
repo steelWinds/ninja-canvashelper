@@ -7,9 +7,8 @@ on:
     branches: [main]
 jobs:
   publish-npm:
-    name: Publish project on NPM
     if: ${{ github.ref_name == 'main' }}
-    needs: prod-setup-ci
+    name: Publish project on NPM
     runs-on: ubuntu-latest
     steps:
       - name: Setup checkout
