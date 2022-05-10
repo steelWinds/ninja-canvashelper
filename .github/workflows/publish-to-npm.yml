@@ -23,10 +23,13 @@ jobs:
           version: latest
           run_install: false
 
+      - name: Auth in GIT
+        run: |
+           git config user.name "GitHub Actions Bot"
+           git config user.email "<>"
+
       - name: Set package.json version
         run: |
-          git config --global user.name "GitHub Actions Bot"
-          git config --global user.email "<>"
           pnpm version ${{ github.ref_name }} --git-tag-version --allow-same-version --force
 
       - name: Commit changes
