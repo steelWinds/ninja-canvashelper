@@ -8,9 +8,6 @@ on:
       - edited
     branches:
       - main
-  push:
-    branches:
-      - main
 jobs:
   publish-npm:
     name: Publish project on NPM
@@ -25,7 +22,7 @@ jobs:
           node-version: '16'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Setup PNPM ${{ github.ref_name }}
+      - name: Setup PNPM ${{ github.ref_name }})
         uses: pnpm/action-setup@master
         with:
           version: latest
@@ -38,9 +35,10 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
 
-      - run: echo '${{ github.ref_name }}''
+      #- run: echo '${{ github.ref_name }}'
 
-      #- run: pnpm version from-git -git-tag-version -allow-same-version -force
+      - run: |
+        pnpm version ${{ github.ref_name }} --git-tag-version --allow-same-version --force
       
       #- run: pnpm publish --no-git-checks
       #  env:
