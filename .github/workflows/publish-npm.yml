@@ -1,16 +1,5 @@
 name: publish-npm
-on:
-  release:
-    types: 
-      - published
-      - created
-      - released
-      - edited
-    branches:
-      - main
-  push:
-    branches:
-      - main
+on: release
 jobs:
   publish-npm:
     name: Publish project on NPM
