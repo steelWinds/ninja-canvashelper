@@ -22,6 +22,9 @@ jobs:
         with:
           version: latest
           run_install: false
+
+      - name: Register auto commit
+        uses: stefanzweifel/git-auto-commit-action@v4
       
       - name: Install depends
         run: pnpm i
@@ -38,11 +41,11 @@ jobs:
         run: |
           pnpm version ${{ github.ref_name }} --git-tag-version --allow-same-version --force
 
-      - name: Commit changes
-        run: |
-          git add -A
-          git commit -m "Update package.json version"
-          git push
+      #- name: Commit changes
+      #  run: |
+      #    git add -A
+      #    git commit -m "Update package.json version"
+      #    git push
       
       - name: Publish to NPM
         run: pnpm publish
