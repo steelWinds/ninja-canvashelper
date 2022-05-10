@@ -4,9 +4,6 @@ on:
     types: [created]
     branches:
       - main
-  push: 
-    branches:
-      - main
 jobs:
   publish-npm:
     name: Publish project on NPM
