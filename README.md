@@ -28,7 +28,7 @@ import CanvasHelper from 'ninja-canvashelper';
 
 const cHelper = new CanvasHelper();
 
-const canvas = await cHelper.createCanvasField(
+const canvas = cHelper.createCanvasField(
   'canvas-id',
   {
     iSize: 400,
