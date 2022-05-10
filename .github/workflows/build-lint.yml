@@ -6,8 +6,12 @@ on:
   pull_request:
     branches:
       - main
+  release:
+    types: [published, created, released]
+    branches: 
+      - main
 jobs: 
-  prod-setup-env:
+  prod-setup-ci:
     if: ${{ github.ref_name == 'main' }}
     runs-on: ubuntu-latest
     strategy: 
@@ -21,11 +25,7 @@ jobs:
         uses: actions/setup-node@main
         with:
           node-version: ${{ matrix.node }}
-        
-  prod-build:
-    needs: prod-setup-env
-    runs-on: ubuntu-latest
-    steps:
+      
       - name: Setup PNPM
         uses: pnpm/action-setup@master
         with:
@@ -44,7 +44,7 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-
+        
       - name: Setup depends and out PNPM version
         run: pnpm i
 
