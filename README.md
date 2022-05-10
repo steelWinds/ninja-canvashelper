@@ -8,7 +8,7 @@
 
 ![GitHub](https://img.shields.io/github/license/steelWinds/ninja-canvashelper?style=flat-square)
 
-![npm](https://img.shields.io/npm/v/ninja-canvashelper?style=flat-square)
+![npm (tag)](https://img.shields.io/npm/v/ninja-canvashelper/latest?style=flat-square)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/steelWinds/ninja-canvashelper?style=flat-square)
 
 Simple library for simplification work with Canvas
