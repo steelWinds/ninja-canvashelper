@@ -10,11 +10,17 @@ jobs:
   build-linux:
     environment: prod-env
     runs-on: ubuntu-latest
+    strategy: 
+      matrix:
+        node-v: [14, 16, 18]
     steps:
+      - name: Setup checkout
       - uses: actions/checkout@v3
+      - name: Setup Node.js
       - uses: actions/setup-node@v3
         with:
-          node-version: 'latest'
+          node-version: ${{ matrix.node }}
+      - name: Setup PNPM manager
       - uses: pnpm/action-setup@v2.2.1
         with:
           version: latest
