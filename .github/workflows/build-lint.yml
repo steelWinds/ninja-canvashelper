@@ -9,6 +9,7 @@ on:
     branches: [main]
 jobs: 
   prod-setup-ci:
+    name: Build and test project
     if: ${{ github.ref_name == 'main' }}
     runs-on: ubuntu-latest
     strategy: 
@@ -18,7 +19,7 @@ jobs:
       - name: Setup checkout
         uses: actions/checkout@main
       
-      - name: Setup Node.js
+      - name: Setup Node.js ${{ matrix.node }}
         uses: actions/setup-node@main
         with:
           node-version: ${{ matrix.node }}
@@ -54,11 +55,12 @@ jobs:
       - name: Archive /dist artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: dist-without-markdown
+          name: build-project
           path: dist
           retention-days: 2
   
   publish-npm:
+    name: Publish project on NPM
     if: ${{ github.ref_name == 'main' }}
     needs: prod-setup-ci
     runs-on: ubuntu-latest
