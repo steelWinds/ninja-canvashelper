@@ -12,9 +12,6 @@ jobs:
     name: Publish project on NPM
     runs-on: ubuntu-latest
     steps:
-      - name: Setup auto-commits
-        uses: stefanzweifel/git-auto-commit-action@main
-
       - name: Setup checkout
         uses: actions/checkout@main
 
