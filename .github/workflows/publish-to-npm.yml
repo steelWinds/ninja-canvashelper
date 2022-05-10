@@ -23,11 +23,6 @@ jobs:
           version: latest
           run_install: false
 
-      - name: Auth in GIT
-        run: |
-           git config user.name "GitHub Actions Bot"
-           git config user.email "<>"
-
       - name: Set package.json version
         run: |
           pnpm version ${{ github.ref_name }} --git-tag-version --allow-same-version --force
@@ -38,11 +33,10 @@ jobs:
       - name: Build project
         run: pnpm build
 
-      - name: Commit changes
+      - name: Auth in GIT
         run: |
-          git add -A
-          git commit -m "Update package.json version"
-          git push origin main
+           git config user.name "GitHub Actions Bot"
+           git config user.email "<>"
 
       - name: Publish to NPM
         run: pnpm publish --no-git-checks
