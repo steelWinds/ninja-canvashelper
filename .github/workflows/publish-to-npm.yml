@@ -1,9 +1,7 @@
 name: publish-to-npm
 on:
   release:
-    types: [created]
-    branches:
-      - main
+    types: [published, created]
 jobs:
   publish:
     name: Publish project on NPM
