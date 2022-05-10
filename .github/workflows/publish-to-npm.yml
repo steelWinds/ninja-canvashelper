@@ -31,12 +31,6 @@ jobs:
       - name: Set package.json version
         run: |
           pnpm version ${{ github.ref_name }} --git-tag-version --allow-same-version --force
-
-      - name: Commit changes
-        run: |
-          git add -A
-          git commit -m "Update package.json version"
-          git push origin main
       
       - name: Install depends
         run: pnpm i
@@ -44,7 +38,13 @@ jobs:
       - name: Build project
         run: pnpm build
 
+      - name: Commit changes
+        run: |
+          git add -A
+          git commit -m "Update package.json version"
+          git push origin main
+
       - name: Publish to NPM
-        run: pnpm publish
+        run: pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} 
