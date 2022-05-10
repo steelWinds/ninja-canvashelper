@@ -55,7 +55,7 @@ const canvas = await cHelper.createCanvasField(
 ---
 
 #### CanvasDrawing
-- ```canvas.draw.clear(full, options)``` - clear canvas field full, or by with options
+- ```canvas.draw.clear(full, options)``` - clear canvas field full, or with options
 - ```canvas.draw.drawRect(options)``` - draw rect with options
 - ```canvas.draw.drawLine(options, lineOptions)``` - draw line with options
 - ```canvas.draw.drawArc(options)``` - draw circle with options
