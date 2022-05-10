@@ -16,6 +16,11 @@ jobs:
     name: Publish project on NPM
     runs-on: ubuntu-latest
     steps:
+      - name: Setup release label  
+        uses: actions-ecosystem/action-release-label@main
+        id: release-label
+        if: ${{ github.event.pull_request.merged == true }}
+
       - name: Setup get latest tag  
         uses: actions-ecosystem/action-get-latest-tag@main
         id: get-latest-tag
