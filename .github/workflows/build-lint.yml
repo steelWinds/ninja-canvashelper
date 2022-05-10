@@ -55,20 +55,3 @@ jobs:
           name: build-project
           path: dist
           retention-days: 2
-  
-  publish-npm:
-    name: Publish project on NPM
-    if: ${{ github.ref_name == 'main' }}
-    needs: prod-setup-ci
-    runs-on: ubuntu-latest
-    steps:
-      - name: Setup checkout
-        uses: actions/checkout@main
-
-      - name: Setup Node.js
-        uses: actions/setup-node@main
-        with:
-          node-version: '16'
-
-      - name: Publish
-        run: echo 'pub npm'
