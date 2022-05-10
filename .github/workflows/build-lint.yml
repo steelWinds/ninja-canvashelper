@@ -60,6 +60,7 @@ jobs:
   
   publish-npm:
     if: ${{ github.ref_name == 'main' }}
+    needs: prod-setup-ci
     runs-on: ubuntu-latest
     steps:
       - name: Setup checkout
