@@ -1,9 +1,11 @@
 name: build-lint-action
 on:
   push: 
-    - main
+    branches:
+      - main
   pull_request:
-    - main
+    branches:
+      - main
 jobs: 
   build-linux:
     environment: prod-env
