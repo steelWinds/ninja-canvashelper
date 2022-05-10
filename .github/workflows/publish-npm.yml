@@ -18,24 +18,28 @@ jobs:
           node-version: '16'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Setup PNPM ${{ github.ref_name }})
+      - name: Setup PNPM
         uses: pnpm/action-setup@master
         with:
           version: latest
           run_install: false
       
-      - run: pnpm i 
-      - run: pnpm build
+      - name: Install depends
+        run: pnpm i
 
-      - run: |
+      - name: Build project
+        run: pnpm build
+
+      - name: Auth in GIT
+        run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
 
-      #- run: echo '${{ github.ref_name }}'
-
-      - run: |
+      - name: Set package.json version
+        run: |
           pnpm version ${{ github.ref_name }} --git-tag-version --allow-same-version --force
       
-      - run: pnpm publish --no-git-checks
+      - name: Publish to NPM
+        run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} 
