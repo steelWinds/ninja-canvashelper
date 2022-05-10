@@ -4,6 +4,9 @@ on:
     types: [created]
     branches:
       - main
+  push: 
+    branches:
+      - main
 jobs:
   publish-npm:
     name: Publish project on NPM
@@ -40,6 +43,6 @@ jobs:
           pnpm version ${{ github.ref_name }} --git-tag-version --allow-same-version --force
       
       - name: Publish to NPM
-        run: pnpm publish
+        run: pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} 
