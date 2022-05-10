@@ -23,20 +23,21 @@ jobs:
           version: latest
           run_install: false
 
-      - name: Set package.json version
-        run: |
-          pnpm version ${{ github.ref_name }} --git-tag-version --allow-same-version --force
       
       - name: Install depends
         run: pnpm i
 
       - name: Build project
         run: pnpm build
-
+      
       - name: Auth in GIT
         run: |
            git config user.name "GitHub Actions Bot"
            git config user.email "<>"
+
+      - name: Set package.json version
+        run: |
+          pnpm version ${{ github.ref_name }} --git-tag-version --allow-same-version --force
 
       - name: Publish to NPM
         run: pnpm publish --no-git-checks
