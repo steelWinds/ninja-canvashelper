@@ -1,7 +1,5 @@
 name: publish-npm
 on:
-  push: 
-    branches: [main]
   release:
     types: [published, created, released]
     branches: [main]
@@ -31,6 +29,6 @@ jobs:
 
       - run: pnpm version patch -git-tag-version false
       
-      - run: pnpm publish
+      - run: pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} 
