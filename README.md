@@ -21,7 +21,7 @@ pnpm add canvashelper
 ### Usage
 
 ```
-import CanvasHelper from 'canvashelper';
+import CanvasHelper from 'ninja-canvashelper';
 
 const cHelper = new CanvasHelper();
 

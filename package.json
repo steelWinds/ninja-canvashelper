@@ -1,5 +1,5 @@
 {
-  "name": "canvashelper",
+  "name": "ninja-canvashelper",
   "private": false,
   "version": "0.0.0",
   "files": [
@@ -7,13 +7,13 @@
     "types",
     "src"
   ],
-  "main": "./dist/canvashelper.es.js",
+  "main": "./dist/ninja-canvashelper.es.js",
   "types": "./types/main.d.ts",
-  "module": "./dist/canvashelper.es.js",
+  "module": "./dist/ninja-canvashelper.es.js",
   "exports": {
     ".": {
-      "import": "./dist/canvashelper.es.js",
-      "require": "./dist/canvashelper.umd.js"
+      "import": "./dist/ninja-canvashelper.es.js",
+      "require": "./dist/ninja-canvashelper.umd.js"
     }
   },
   "scripts": {
