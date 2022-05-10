@@ -23,7 +23,6 @@ jobs:
           version: latest
           run_install: false
 
-      
       - name: Install depends
         run: pnpm i
 
