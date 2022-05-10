@@ -8,6 +8,9 @@ on:
       - edited
     branches:
       - main
+  push:
+    branches:
+      - main
 jobs:
   publish-npm:
     name: Publish project on NPM
@@ -30,6 +33,10 @@ jobs:
       
       - run: pnpm i 
       - run: pnpm build
+
+      - run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
 
       - run: pnpm version from-git -git-tag-version -allow-same-version -force
       
