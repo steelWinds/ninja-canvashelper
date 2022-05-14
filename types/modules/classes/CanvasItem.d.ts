@@ -1,4 +1,4 @@
-import type { ICanvasItem } from '@modules/interfaces/ICanvasItem';
+import type { ICanvasItem } from "../interfaces/ICanvasItem";
 declare class CanvasItem implements ICanvasItem {
     #private;
     constructor(canvas: HTMLCanvasElement, id: string, parent: Node);

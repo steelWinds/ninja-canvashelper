@@ -1,7 +1,7 @@
 {
   "name": "ninja-canvashelper",
   "private": false,
-  "version": "0.0.6",
+  "version": "0.0.7",
   "files": [
     "dist",
     "types",
@@ -20,14 +20,16 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "prepare": "husky install",
+    "prepare": "husky install && ts-patch install -s",
     "lint": "eslint ./src/**/*.{ts,js} --no-error-on-unmatched-pattern"
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^17.0.31",
     "husky": "^8.0.1",
+    "ts-patch": "^2.0.1",
     "typescript": "^4.5.4",
+    "typescript-transform-paths": "^3.3.1",
     "vite": "^2.9.7"
   },
   "dependencies": {

@@ -1,4 +1,4 @@
-import type { ICanvasHelper } from '@modules/interfaces/ICanvasHelper';
+import type { ICanvasHelper } from "../interfaces/ICanvasHelper";
 declare class CanvasHelper implements ICanvasHelper {
     #private;
     constructor();

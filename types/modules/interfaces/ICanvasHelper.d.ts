@@ -1,4 +1,4 @@
-import type { ICanvasItem } from '@modules/interfaces/ICanvasItem';
+import type { ICanvasItem } from "./ICanvasItem";
 interface ICanvasHelper {
     createCanvasField(id: string, { iSize, bSize, reserveMessage, parentSelector, styleClass }: {
         iSize: number;

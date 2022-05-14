@@ -1,4 +1,4 @@
-import type { ICanvasDrawing } from '@modules/interfaces/ICanvasDrawing';
+import type { ICanvasDrawing } from "../interfaces/ICanvasDrawing";
 declare class CanvasDrawing implements ICanvasDrawing {
     #private;
     constructor(ctx: CanvasRenderingContext2D);
