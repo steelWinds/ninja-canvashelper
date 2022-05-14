@@ -1,12 +1,14 @@
 import type { ICanvasItem } from '@modules/interfaces/ICanvasItem';
 interface ICanvasHelper {
-    createCanvasField(id: string, { iSize, bSize, parentSelector, styleClass }: {
+    createCanvasField(id: string, { iSize, bSize, reserveMessage, parentSelector, styleClass }: {
         iSize: number;
         bSize: number;
+        reserveMessage?: string;
         parentSelector?: string;
         styleClass?: string;
-    }): Promise<ICanvasItem>;
-    removeCanvasField(id: string): Promise<boolean>;
-    get collection(): Map<string, ICanvasItem>;
+    }): ICanvasItem;
+    removeCanvasField(id: string): boolean;
+    getCanvasById(id: string): ICanvasItem | null;
+    get collection(): Array<ICanvasItem>;
 }
 export type { ICanvasHelper };

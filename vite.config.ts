@@ -11,7 +11,7 @@ const {resolve} = path;
 const config: UserConfigExport & InlineConfig = defineConfig({
 	build: {
 		lib: {
-			entry: resolve('src/main.ts'),
+			entry: resolve('src/index.ts'),
 			name: 'CanvasHelper',
 		},
 	},

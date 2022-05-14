@@ -1,12 +1,13 @@
 import type { ICanvasHelper } from '@modules/interfaces/ICanvasHelper';
-import CanvasItem from '@modules/classes/CanvasItem';
 declare class CanvasHelper implements ICanvasHelper {
     #private;
     constructor();
-    get collection(): Map<string, InstanceType<typeof CanvasItem>>;
-    createCanvasField(id: string, { iSize, bSize, parentSelector, styleClass }: {
+    get collection(): ICanvasHelper['collection'];
+    getCanvasById(id: string): ReturnType<ICanvasHelper['getCanvasById']>;
+    createCanvasField(id: string, { iSize, bSize, reserveMessage, parentSelector, styleClass }: {
         iSize: number;
         bSize: number;
+        reserveMessage?: string;
         parentSelector?: string;
         styleClass?: string;
     }): ReturnType<ICanvasHelper['createCanvasField']>;
