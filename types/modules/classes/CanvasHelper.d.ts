@@ -4,6 +4,7 @@ declare class CanvasHelper implements ICanvasHelper {
     constructor();
     get collection(): ICanvasHelper['collection'];
     getCanvasById(id: string): ReturnType<ICanvasHelper['getCanvasById']>;
+    addCanvasField(el: HTMLCanvasElement | string): ReturnType<ICanvasHelper['addCanvasField']>;
     createCanvasField(id: string, { iSize, bSize, reserveMessage, parentSelector, styleClass }: {
         iSize: number;
         bSize: number;

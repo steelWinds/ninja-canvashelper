@@ -1,5 +1,6 @@
 import type { ICanvasItem } from "./ICanvasItem";
 interface ICanvasHelper {
+    addCanvasField(el: HTMLCanvasElement | string): ICanvasItem;
     createCanvasField(id: string, { iSize, bSize, reserveMessage, parentSelector, styleClass }: {
         iSize: number;
         bSize: number;
