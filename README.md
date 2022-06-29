@@ -43,6 +43,7 @@ const canvas = cHelper.createCanvasField(
 
 #### CanvasHelper
 - ```cHelper.createCanvasField(id, options)``` - create canvas instance ang get it
+- ```cHelper.addCanvasField(element)``` - add canvas element ang get it
 - ```cHelper.removeCanvasField(id)``` - remove canvas instance by id
 - ```cHelper.getCanvasById(id)``` - get canvas instance by id
 - ```cHelper.collection``` - get all created canvases
