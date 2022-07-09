@@ -25,8 +25,6 @@ class CanvasHelper implements ICanvasHelper {
 	): ReturnType<ICanvasHelper['addCanvasField']> {
 		let canvas = null;
 
-		console.log(el);
-
 		if (typeof el === 'string') {
 			canvas = <HTMLCanvasElement>globalThis
 				.document
