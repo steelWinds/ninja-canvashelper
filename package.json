@@ -40,7 +40,6 @@
     "eslint": "^8.18.0",
     "eslint-config-xo": "0.41.0",
     "js-base64": "^3.7.2",
-    "randomstring": "^1.2.2",
     "vitest": "^0.12.10"
   }
 }

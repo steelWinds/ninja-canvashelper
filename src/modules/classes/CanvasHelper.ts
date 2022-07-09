@@ -1,7 +1,6 @@
 import type {ICanvasHelper} from '@modules/interfaces/ICanvasHelper';
 import CanvasItem from '@modules/classes/CanvasItem';
 import {encode} from 'js-base64';
-import randomstring from 'randomstring';
 
 class CanvasHelper implements ICanvasHelper {
 	#canvasesCollection: Map<string, InstanceType<typeof CanvasItem>>;
@@ -21,9 +20,12 @@ class CanvasHelper implements ICanvasHelper {
 	}
 
 	public addCanvasField(
+		id: string,
 		el: HTMLCanvasElement | string,
 	): ReturnType<ICanvasHelper['addCanvasField']> {
 		let canvas = null;
+
+		console.log(el);
 
 		if (typeof el === 'string') {
 			canvas = <HTMLCanvasElement>globalThis
@@ -33,7 +35,7 @@ class CanvasHelper implements ICanvasHelper {
 			canvas = el;
 		}
 
-		const base64ID = encode(randomstring.generate(10));
+		const base64ID = encode(id);
 		const parent = <HTMLElement>canvas.parentElement;
 
 		return new CanvasItem(canvas, base64ID, parent);

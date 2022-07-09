@@ -11,7 +11,6 @@ specifiers:
   eslint-config-xo: 0.41.0
   husky: ^8.0.1
   js-base64: ^3.7.2
-  randomstring: ^1.2.2
   ts-patch: ^2.0.1
   typescript: ^4.7.4
   typescript-transform-paths: ^3.3.1
@@ -26,7 +25,6 @@ dependencies:
   eslint: 8.18.0
   eslint-config-xo: 0.41.0_eslint@8.18.0
   js-base64: 3.7.2
-  randomstring: 1.2.2
   vitest: 0.12.10
 
 devDependencies:
@@ -291,11 +289,6 @@ packages:
   /array-union/2.1.0:
     resolution: {integrity: sha512-HGyxoOTYUyCM6stUe6EJgnd4EoewAI7zMdfqO+kGjnlZmBDz/cR5pf8r/cR4Wq60sL/p0IkcjUEEPwS3GFrIyw==}
     engines: {node: '>=8'}
-    dev: false
-
-  /array-uniq/1.0.2:
-    resolution: {integrity: sha1-X8w3OSB3VyPP1k1lxkvvU7+eum0=}
-    engines: {node: '>=0.10.0'}
     dev: false
 
   /assertion-error/1.1.0:
@@ -1101,18 +1094,6 @@ packages:
 
   /queue-microtask/1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
-    dev: false
-
-  /randombytes/2.0.3:
-    resolution: {integrity: sha1-Z0yZdgkBw8QRJ3GjHlIdw0nMCew=}
-    dev: false
-
-  /randomstring/1.2.2:
-    resolution: {integrity: sha512-9FByiB8guWZLbE+akdQiWE3I1I6w7Vn5El4o4y7o5bWQ6DWPcEOp+aLG7Jezc8BVRKKpgJd2ppRX0jnKu1YCfg==}
-    hasBin: true
-    dependencies:
-      array-uniq: 1.0.2
-      randombytes: 2.0.3
     dev: false
 
   /rechoir/0.6.2:
